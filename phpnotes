@@ -27,3 +27,11 @@ $x = 5;
 $y = 4;
 echo $x + $y;
 ?>
+
+The scope of a variable is the part of the script where the variable can be referenced/used.
+PHP has three different variable scopes:
+
+1.local
+2.global
+3.static
+
