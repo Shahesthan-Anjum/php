@@ -21,3 +21,9 @@ $x=4;
 echo $x;
 echo "the value of x is $x";
 ?>
+
+<?php
+$x = 5;
+$y = 4;
+echo $x + $y;
+?>
