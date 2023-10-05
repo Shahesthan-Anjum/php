@@ -22,6 +22,7 @@ echo $x;
 echo "the value of x is $x";
 ?>
 
+
 <?php
 $x = 5;
 $y = 4;
@@ -31,7 +32,95 @@ echo $x + $y;
 The scope of a variable is the part of the script where the variable can be referenced/used.
 PHP has three different variable scopes:
 
-1.local
-2.global
-3.static
+1.local:A variable declared outside a function has a GLOBAL SCOPE and can only be accessed outside a function:
+<?php
+$x = 5; // global scope
 
+function myTest() {
+  // using x inside this function will generate an error
+  echo "<p>Variable x inside function is: $x</p>";
+}
+myTest();
+
+echo "<p>Variable x outside function is: $x</p>";
+?>
+
+2.global:
+A variable declared within a function has a LOCAL SCOPE and can only be accessed within that function:
+
+Example
+<?php
+function myTest() {
+  $x = 5; // local scope
+  echo "<p>Variable x inside function is: $x</p>";
+}
+myTest();
+
+// using x outside the function will generate an error
+echo "<p>Variable x outside function is: $x</p>";
+?>
+The global keyword is used to access a global variable from within a function.
+<?php
+$x = 5;
+$y = 10;
+
+function myTest() {
+  global $x, $y;
+  $y = $x + $y;
+}
+
+myTest();
+echo $y; // outputs 15
+?>
+
+3.static:when a function is completed/executed, all of its variables are deleted. However, sometimes we want a local variable NOT to be deleted.
+<?php
+function myTest() {
+  static $x = 0;
+  echo $x;
+  $x++;
+}
+
+myTest();
+myTest();
+myTest();
+?>
+
+Echo and Print:
+The echo statement can be used with or without parentheses: echo or echo().
+<?php
+echo "<h2>PHP is Fun!</h2>";
+echo "Hello world!<br>";
+echo "I'm about to learn PHP!<br>";
+echo "This ", "string ", "was ", "made ", "with multiple parameters.";
+?>
+
+The print statement can be used with or without parentheses: print or print().
+<?php
+print "<h2>PHP is Fun!</h2>";
+print "Hello world!<br>";
+print "I'm about to learn PHP!";
+?>
+
+
+
+Data Types
+Variables can store data of different types, and different data types can do different things.
+
+PHP supports the following data types:
+
+String
+Integer
+Float (floating point numbers - also called double)
+Boolean
+Array
+Object
+NULL
+Resource
+
+Var_dum tell the name of the datatype we r using
+
+<?php
+$x = 5985;
+var_dump($x);
+?>
